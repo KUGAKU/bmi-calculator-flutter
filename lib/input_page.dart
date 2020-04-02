@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
+import 'results_page.dart';
 
 const bottomContainerHeight = 90.0;
 const activeCardColor = Color(0xFF1D1E33);
@@ -165,6 +166,7 @@ class _InputPageState extends State<InputPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             FloatingActionButton(
+                              heroTag: "btn1",
                               onPressed: (){
                                 setState(() {
                                   weight = weight - 1;
@@ -174,6 +176,7 @@ class _InputPageState extends State<InputPage> {
                               backgroundColor: Colors.blueGrey,
                             ),
                             FloatingActionButton(
+                              heroTag: "btn2",
                               onPressed: (){
                                 setState(() {
                                   weight = weight + 1;
@@ -216,6 +219,7 @@ class _InputPageState extends State<InputPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             FloatingActionButton(
+                              heroTag: "btn3",
                               onPressed: (){
                                 setState(() {
                                   age = age - 1;
@@ -225,6 +229,7 @@ class _InputPageState extends State<InputPage> {
                               backgroundColor: Colors.blueGrey,
                             ),
                             FloatingActionButton(
+                              heroTag: "btn4",
                               onPressed: (){
                                 setState(() {
                                   age = age + 1;
@@ -241,11 +246,23 @@ class _InputPageState extends State<InputPage> {
                 ),
               ],
             ),
-            Container(
-              color: bottomContainerColor,
-              margin: EdgeInsets.only(top: 10.0),
-              height: bottomContainerHeight,
-              width: double.infinity,
+            GestureDetector(
+              onTap: (){
+                Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ResultsPage();
+                      },
+                    ),
+                );
+              },
+              child: Container(
+                child: Center(child: Text('CALCULATE')),
+                color: bottomContainerColor,
+                margin: EdgeInsets.only(top: 10.0),
+                height: bottomContainerHeight,
+                width: double.infinity,
+              ),
             )
           ]),
     );
