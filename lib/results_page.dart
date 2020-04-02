@@ -12,6 +12,14 @@ const Tilte = TextStyle(
 const activeCardColor = Color(0xFF1D1E33);
 
 class ResultsPage extends StatelessWidget {
+
+  ResultsPage({@required this.bmiResult, this.resultText, this.interpreation});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpreation;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +50,7 @@ class ResultsPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Center(
-                    child: Text('Normale',
+                    child: Text(resultText.toUpperCase(),
                     style: TextStyle(
                       color: Color(0xFF24D876),
                       fontSize: 22.0,
@@ -50,7 +58,7 @@ class ResultsPage extends StatelessWidget {
                     ),),
                   ),
                   Center(
-                    child: Text('18.3',
+                    child: Text(bmiResult,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 100.0,
@@ -58,7 +66,7 @@ class ResultsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Text('Your BMI results is quite low, you should est more!',
+                  Text(interpreation,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 22.0
