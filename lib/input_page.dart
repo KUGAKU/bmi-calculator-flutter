@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class InputPage extends StatefulWidget {
@@ -12,8 +13,69 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
       ),
-      body: Center(
-        child: Text('Body Text'),
+      body: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(15.0),
+                  width: 170.0,
+                  height: 200.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF1D1E33),
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(15.0),
+                  width: 170.0,
+                  height: 200.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF1D1E33),
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+              ),
+            ],
+          ),
+           Container(
+              height: 200.0,
+              margin: EdgeInsets.all(15.0),
+              decoration: BoxDecoration(
+                color: Color(0xFF1D1E33),
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+            ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(15.0),
+                  width: 170.0,
+                  height: 200.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF1D1E33),
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(15.0),
+                  width: 170.0,
+                  height: 200.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF1D1E33),
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ]
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
