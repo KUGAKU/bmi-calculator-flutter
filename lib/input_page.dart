@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
@@ -9,6 +10,11 @@ const activeCardColor = Color(0xFF1D1E33);
 const inactiveCardColor = Color(0xFF111328);
 const bottomContainerColor = Color(0xFFEB1555);
 
+enum genderType {
+  male,
+  female
+}
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -17,14 +23,14 @@ class InputPage extends StatefulWidget {
 Color maleBackgroundCardColor = inactiveCardColor;
 Color femaleBackgroundCardColor = inactiveCardColor;
 
-updateBackgroundColor(int gender) {
+void updateBackgroundColor( gender ) {
   //MALEボタンが押下された時
-  if ( gender == 1 ) {
+  if ( gender == genderType.male ) {
     maleBackgroundCardColor = activeCardColor;
     femaleBackgroundCardColor = inactiveCardColor;
   }
   //FEMALEボタンが押下された時
-  else {
+  if ( gender == genderType.female ) {
     femaleBackgroundCardColor = activeCardColor;
     maleBackgroundCardColor = inactiveCardColor;
   }
@@ -46,7 +52,7 @@ class _InputPageState extends State<InputPage> {
                 child: GestureDetector(
                   onTap: (){
                     setState(() {
-                      updateBackgroundColor(1);
+                      updateBackgroundColor(genderType.male);
                     });
                   },
                   child: ReusableCard(
@@ -66,7 +72,7 @@ class _InputPageState extends State<InputPage> {
                 child: GestureDetector(
                   onTap: (){
                     setState(() {
-                      updateBackgroundColor(0);
+                      updateBackgroundColor(genderType.female);
                     });
                   },
                   child: ReusableCard(
