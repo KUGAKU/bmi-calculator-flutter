@@ -257,7 +257,11 @@ class _InputPageState extends State<InputPage> {
                 );
               },
               child: Container(
-                child: Center(child: Text('CALCULATE')),
+                child: Center(child: Text('CALCULATE',
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold
+                  ),)),
                 color: bottomContainerColor,
                 margin: EdgeInsets.only(top: 10.0),
                 height: bottomContainerHeight,
