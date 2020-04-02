@@ -15,6 +15,9 @@ int _value = 180;
 double _startValue = 0.0;
 double _endValue = 0.0;
 
+int age = 20;
+int weight = 62;
+
 enum genderType { male, female }
 
 class InputPage extends StatefulWidget {
@@ -25,13 +28,12 @@ class InputPage extends StatefulWidget {
 genderType selectedGender;
 
 class _InputPageState extends State<InputPage> {
-
   void _startSlider(double e) => setState(() {
-    _startValue = e;
-  });
+        _startValue = e;
+      });
   void _endSlider(double e) => setState(() {
-    _endValue = e;
-  });
+        _endValue = e;
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +127,7 @@ class _InputPageState extends State<InputPage> {
                     onChanged: (double newValue) {
                       setState(() {
                         _value = newValue.round();
-                });
+                      });
                     },
                     onChangeStart: _startSlider,
                     onChangeEnd: _endSlider,
@@ -136,10 +138,106 @@ class _InputPageState extends State<InputPage> {
             Row(
               children: <Widget>[
                 Expanded(
-                  child: ReusableCard(color: activeCardColor),
+                  child: Container(
+                    margin: EdgeInsets.all(15.0),
+                    width: 170.0,
+                    height: 200.0,
+                    decoration: BoxDecoration(
+                      color: activeCardColor,
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'WEIGHT',
+                          style: TextStyle(
+                              fontSize: 18.0, color: Color(0xFF8D8E98)),
+                        ),
+                        Text(
+                          '$weight',
+                          style: TextStyle(
+                            fontSize: 50.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            FloatingActionButton(
+                              onPressed: (){
+                                setState(() {
+                                  weight = weight - 1;
+                                });
+                              },
+                              child: Icon(Icons.remove, color: Colors.white,size: 40.0),
+                              backgroundColor: Colors.blueGrey,
+                            ),
+                            FloatingActionButton(
+                              onPressed: (){
+                                setState(() {
+                                  weight = weight + 1;
+                                });
+                              },
+                              child: Icon(Icons.add, color: Colors.white,size: 40.0),
+                              backgroundColor: Colors.blueGrey,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 Expanded(
-                  child: ReusableCard(color: activeCardColor),
+                  child: Container(
+                    margin: EdgeInsets.all(15.0),
+                    width: 170.0,
+                    height: 200.0,
+                    decoration: BoxDecoration(
+                      color: activeCardColor,
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'AGE',
+                          style: TextStyle(
+                              fontSize: 18.0, color: Color(0xFF8D8E98)),
+                        ),
+                        Text(
+                          '$age',
+                          style: TextStyle(
+                            fontSize: 50.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            FloatingActionButton(
+                              onPressed: (){
+                                setState(() {
+                                  age = age - 1;
+                                });
+                              },
+                              child: Icon(Icons.remove, color: Colors.white,size: 40.0),
+                              backgroundColor: Colors.blueGrey,
+                            ),
+                            FloatingActionButton(
+                              onPressed: (){
+                                setState(() {
+                                  age = age + 1;
+                                });
+                              },
+                              child: Icon(Icons.add, color: Colors.white,size: 40.0),
+                              backgroundColor: Colors.blueGrey,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
