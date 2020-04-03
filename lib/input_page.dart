@@ -43,240 +43,242 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
       ),
-      body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: ReusableCard(
-                    onPress: () {
-                      setState(() {
-                        selectedGender = genderType.male;
-                      });
-                    },
-                    color: selectedGender == genderType.male
-                        ? activeCardColor
-                        : inactiveCardColor,
-                    cardChild: CardChild(
-                      iconText: 'MALE',
-                      iconImage: Icon(
-                        FontAwesomeIcons.mars,
-                        color: Colors.white,
-                        size: 80.0,
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: ReusableCard(
-                    onPress: () {
-                      setState(() {
-                        selectedGender = genderType.female;
-                      });
-                    },
-                    color: selectedGender == genderType.female
-                        ? activeCardColor
-                        : inactiveCardColor,
-                    cardChild: CardChild(
-                      iconText: 'FEMALE',
-                      iconImage: Icon(
-                        FontAwesomeIcons.venus,
-                        color: Colors.white,
-                        size: 80.0,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Container(
-              height: 200.0,
-              margin: EdgeInsets.all(15.0),
-              decoration: BoxDecoration(
-                color: Color(0xFF1D1E33),
-                borderRadius: BorderRadius.circular(15.0),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+      body: SingleChildScrollView(
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Row(
                 children: <Widget>[
-                  Text(
-                    'HEIGHT',
-                    style: TextStyle(fontSize: 18.0, color: Color(0xFF8D8E98)),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        '$_value',
-                        style: TextStyle(
-                          fontSize: 50.0,
-                          fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: ReusableCard(
+                      onPress: () {
+                        setState(() {
+                          selectedGender = genderType.male;
+                        });
+                      },
+                      color: selectedGender == genderType.male
+                          ? activeCardColor
+                          : inactiveCardColor,
+                      cardChild: CardChild(
+                        iconText: 'MALE',
+                        iconImage: Icon(
+                          FontAwesomeIcons.mars,
+                          color: Colors.white,
+                          size: 80.0,
                         ),
                       ),
-                      Text(
-                        'cm',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                    ),
                   ),
-                  Slider(
-                    value: _value.toDouble(),
-                    min: 120.0,
-                    max: 220.0,
-                    activeColor: Colors.redAccent,
-                    inactiveColor: Colors.blueGrey,
-                    onChanged: (double newValue) {
-                      setState(() {
-                        _value = newValue.round();
-                      });
-                    },
-                    onChangeStart: _startSlider,
-                    onChangeEnd: _endSlider,
-                  )
+                  Expanded(
+                    child: ReusableCard(
+                      onPress: () {
+                        setState(() {
+                          selectedGender = genderType.female;
+                        });
+                      },
+                      color: selectedGender == genderType.female
+                          ? activeCardColor
+                          : inactiveCardColor,
+                      cardChild: CardChild(
+                        iconText: 'FEMALE',
+                        iconImage: Icon(
+                          FontAwesomeIcons.venus,
+                          color: Colors.white,
+                          size: 80.0,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
-            ),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(15.0),
-                    width: 170.0,
-                    height: 200.0,
-                    decoration: BoxDecoration(
-                      color: activeCardColor,
-                      borderRadius: BorderRadius.circular(15.0),
+              Container(
+                height: 200.0,
+                margin: EdgeInsets.all(15.0),
+                decoration: BoxDecoration(
+                  color: Color(0xFF1D1E33),
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'HEIGHT',
+                      style: TextStyle(fontSize: 18.0, color: Color(0xFF8D8E98)),
                     ),
-                    child: Column(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          'WEIGHT',
-                          style: TextStyle(
-                              fontSize: 18.0, color: Color(0xFF8D8E98)),
-                        ),
-                        Text(
-                          '$weight',
+                          '$_value',
                           style: TextStyle(
                             fontSize: 50.0,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            FloatingActionButton(
-                              heroTag: "btn1",
-                              onPressed: (){
-                                setState(() {
-                                  weight = weight - 1;
-                                });
-                              },
-                              child: Icon(Icons.remove, color: Colors.white,size: 40.0),
-                              backgroundColor: Colors.blueGrey,
-                            ),
-                            FloatingActionButton(
-                              heroTag: "btn2",
-                              onPressed: (){
-                                setState(() {
-                                  weight = weight + 1;
-                                });
-                              },
-                              child: Icon(Icons.add, color: Colors.white,size: 40.0),
-                              backgroundColor: Colors.blueGrey,
-                            ),
-                          ],
+                        Text(
+                          'cm',
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(15.0),
-                    width: 170.0,
-                    height: 200.0,
-                    decoration: BoxDecoration(
-                      color: activeCardColor,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'AGE',
-                          style: TextStyle(
-                              fontSize: 18.0, color: Color(0xFF8D8E98)),
-                        ),
-                        Text(
-                          '$age',
-                          style: TextStyle(
-                            fontSize: 50.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            FloatingActionButton(
-                              heroTag: "btn3",
-                              onPressed: (){
-                                setState(() {
-                                  age = age - 1;
-                                });
-                              },
-                              child: Icon(Icons.remove, color: Colors.white,size: 40.0),
-                              backgroundColor: Colors.blueGrey,
-                            ),
-                            FloatingActionButton(
-                              heroTag: "btn4",
-                              onPressed: (){
-                                setState(() {
-                                  age = age + 1;
-                                });
-                              },
-                              child: Icon(Icons.add, color: Colors.white,size: 40.0),
-                              backgroundColor: Colors.blueGrey,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            GestureDetector(
-              onTap: (){
-
-                CalculatorBrain calc = CalculatorBrain(height: _value, weight: weight, );
-
-                Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return ResultsPage(
-                          bmiResult: calc.calculateBMI(),
-                          resultText: calc.getResult(),
-                          interpreation: calc.getResult(),
-                        );
+                    Slider(
+                      value: _value.toDouble(),
+                      min: 120.0,
+                      max: 220.0,
+                      activeColor: Colors.redAccent,
+                      inactiveColor: Colors.blueGrey,
+                      onChanged: (double newValue) {
+                        setState(() {
+                          _value = newValue.round();
+                        });
                       },
-                    ),
-                );
-              },
-              child: Container(
-                child: Center(child: Text('CALCULATE',
-                  style: TextStyle(
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.bold
-                  ),)),
-                color: bottomContainerColor,
-                margin: EdgeInsets.only(top: 10.0),
-                height: bottomContainerHeight,
-                width: double.infinity,
+                      onChangeStart: _startSlider,
+                      onChangeEnd: _endSlider,
+                    )
+                  ],
+                ),
               ),
-            )
-          ]),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.all(15.0),
+                      width: 170.0,
+                      height: 200.0,
+                      decoration: BoxDecoration(
+                        color: activeCardColor,
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'WEIGHT',
+                            style: TextStyle(
+                                fontSize: 18.0, color: Color(0xFF8D8E98)),
+                          ),
+                          Text(
+                            '$weight',
+                            style: TextStyle(
+                              fontSize: 50.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              FloatingActionButton(
+                                heroTag: "btn1",
+                                onPressed: (){
+                                  setState(() {
+                                    weight = weight - 1;
+                                  });
+                                },
+                                child: Icon(Icons.remove, color: Colors.white,size: 40.0),
+                                backgroundColor: Colors.blueGrey,
+                              ),
+                              FloatingActionButton(
+                                heroTag: "btn2",
+                                onPressed: (){
+                                  setState(() {
+                                    weight = weight + 1;
+                                  });
+                                },
+                                child: Icon(Icons.add, color: Colors.white,size: 40.0),
+                                backgroundColor: Colors.blueGrey,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.all(15.0),
+                      width: 170.0,
+                      height: 200.0,
+                      decoration: BoxDecoration(
+                        color: activeCardColor,
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'AGE',
+                            style: TextStyle(
+                                fontSize: 18.0, color: Color(0xFF8D8E98)),
+                          ),
+                          Text(
+                            '$age',
+                            style: TextStyle(
+                              fontSize: 50.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              FloatingActionButton(
+                                heroTag: "btn3",
+                                onPressed: (){
+                                  setState(() {
+                                    age = age - 1;
+                                  });
+                                },
+                                child: Icon(Icons.remove, color: Colors.white,size: 40.0),
+                                backgroundColor: Colors.blueGrey,
+                              ),
+                              FloatingActionButton(
+                                heroTag: "btn4",
+                                onPressed: (){
+                                  setState(() {
+                                    age = age + 1;
+                                  });
+                                },
+                                child: Icon(Icons.add, color: Colors.white,size: 40.0),
+                                backgroundColor: Colors.blueGrey,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              GestureDetector(
+                onTap: (){
+
+                  CalculatorBrain calc = CalculatorBrain(height: _value, weight: weight, );
+
+                  Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return ResultsPage(
+                            bmiResult: calc.calculateBMI(),
+                            resultText: calc.getResult(),
+                            interpreation: calc.getResult(),
+                          );
+                        },
+                      ),
+                  );
+                },
+                child: Container(
+                  child: Center(child: Text('CALCULATE',
+                    style: TextStyle(
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.bold
+                    ),)),
+                  color: bottomContainerColor,
+                  margin: EdgeInsets.only(top: 10.0),
+                  height: bottomContainerHeight,
+                  width: double.infinity,
+                ),
+              )
+            ]),
+      ),
     );
   }
 }

@@ -5,7 +5,7 @@ import 'input_page.dart';
 import 'reusable_card.dart';
 
 const Tilte = TextStyle(
-  fontSize: 50.0,
+  fontSize: 25.0,
   fontWeight: FontWeight.bold
 );
 
@@ -31,7 +31,7 @@ class ResultsPage extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(30.0),
+              padding: EdgeInsets.all(20.0),
               child: Text('Your Result',
                 style: Tilte,
               ),
